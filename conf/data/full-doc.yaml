@@ -1,0 +1,19 @@
+defaults:
+  - train/midv-holo-train-fulldoc
+  - test/midv-holo-test-fulldoc
+  - test/midv-holo-pr-notseen-fulldoc
+  - test/midv-2020-fulldoc
+
+
+
+train:
+  applytransform: False
+  split_file: "train.txt"
+
+test:
+  midv-holo-test-fulldoc:
+    applytransform: False
+  midv-holo-pr-notseen-fulldoc:
+    applytransform: False
+  midv-2020-fulldoc:
+    applytransform: False

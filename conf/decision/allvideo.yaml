@@ -1,0 +1,3 @@
+_target_: src.decision.cumulative.NDecision
+th: 0.5
+# th: 0.025

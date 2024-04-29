@@ -1,0 +1,18 @@
+# @package _global_
+defaults:
+  - override /decision: cumulative
+  - override /hydra/launcher: joblib
+  - override /data: full-doc
+
+task_name: midv_baseline_fulldoc_nosplit
+seed: 0
+
+data:
+  train:
+    split_dir: ""
+    split_file: ""
+
+hydra:
+  launcher:
+    # override the number of jobs for joblib
+    n_jobs: 24

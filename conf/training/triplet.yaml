@@ -1,0 +1,45 @@
+trainer:
+  _target_: src.traindl.trainer_general.Trainer
+  epochs_max: 2
+  accelerator: cuda
+  lr: 0.001
+  run_name: "randomcrop_blur_colorjitter_adamw"
+  model: ${model.model}
+
+datamodule: 
+  _target_: src.traindl.trainer_general.MIDVHoloDataModule
+  input_dir: ${data.train.input_dir}
+  split_dir: ${paths.midvholo_split_dir}
+  num_workers: 4
+  batch_size: 16
+  transform:
+    _target_: torchvision.transforms.Compose
+    transforms:
+      - _target_: torchvision.transforms.Resize
+        size: 256
+      - _target_: torchvision.transforms.RandomResizedCrop
+        size: 224
+        scale: [0.8, 1]
+      - _target_: torchvision.transforms.RandomApply
+        transforms: 
+          _target_: torch.nn.ModuleList
+          modules:
+            - _target_: torchvision.transforms.GaussianBlur
+              _convert_: partial
+              kernel_size: [3, 11]
+              sigma: [2, 10]
+        p: 0.4
+      - _target_: torchvision.transforms.RandomApply
+        transforms: 
+          _target_: torch.nn.ModuleList
+          modules:
+            - _target_: torchvision.transforms.ColorJitter
+              brightness: 0.3
+              contrast: 0.1
+              saturation: 0.05
+              # hue: 0.01
+        p: 0.4
+      - _target_: torchvision.transforms.ToTensor
+      - _target_: torchvision.transforms.Normalize
+        mean: [0.485, 0.456, 0.406]
+        std: [0.229, 0.224, 0.225]

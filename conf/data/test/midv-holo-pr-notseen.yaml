@@ -1,0 +1,5 @@
+midv-holo-pr-notseen:
+  _target_: src.data.midv_holo_photo_replacement.MIDVHoloDataPhotoRSplit
+  input_dir: ${paths.data_dir}/midv-holo/crop_ovds
+  split_dir: ${paths.midvholo_split_dir}
+  train: False

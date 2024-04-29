@@ -1,0 +1,11 @@
+# @package _global_
+
+model:
+  model: 
+    backbone_name: resnet18
+
+training:
+  datamodule:
+    only_label: False # only frauds
+
+task_name: wsl_onlyfrauds_${model.model.backbone_name}_${paths.split_name}

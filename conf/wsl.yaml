@@ -1,0 +1,24 @@
+defaults:
+  - _self_
+  # for the hydra framework
+  - paths: default
+  - hydra: default
+  # data and model definition
+  - data: default # what data for training, validation and testing
+  - model: generic_model # model used
+  # 1. training the model
+  - training: triplet # the decision.th will be automatically calculated
+  # 2. what decision to make, video level (end of frames), cumulative (if at some frame the threhsold is passed : considered true)
+  - decision: allvideo
+  # 3. how to select the best run for test
+  - tuner: selectfromruns # selects the best run (best fscore)
+
+# will be used for hydra logs and for the experiment name in mlflow, must be unique between diff models
+task_name: wsl_${model.model.backbone_name}_${paths.split_name}
+# experiment_name: ${task_name}_${paths.split_name}
+seed: 0
+
+tune: True # find best decision threshold
+
+decision:
+  th: -1 # with "tune: True" will be tuned

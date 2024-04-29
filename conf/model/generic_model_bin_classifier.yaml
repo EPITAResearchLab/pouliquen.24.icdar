@@ -1,0 +1,6 @@
+_target_: src.models.binary_general.ClassificationModelGeneral
+model: 
+  _target_: src.models.generic_model.GenericBackbone
+  backbone_name: resnet18 # one of timm.list_models() #mobilevit_s
+  pretrained: True # imagenet
+  num_classes: 2

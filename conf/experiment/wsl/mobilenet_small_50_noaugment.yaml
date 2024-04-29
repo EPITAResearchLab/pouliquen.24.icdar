@@ -1,0 +1,20 @@
+# @package _global_
+
+model:
+  model: 
+    backbone_name: mobilenetv3_small_050
+
+training:
+  datamodule:
+    flip_rot: False #deactivate also the flips
+    transform:
+      _target_: torchvision.transforms.Compose
+      transforms:
+        - _target_: torchvision.transforms.Resize
+          size: [224, 224]
+        - _target_: torchvision.transforms.ToTensor
+        - _target_: torchvision.transforms.Normalize
+          mean: [0.485, 0.456, 0.406]
+          std: [0.229, 0.224, 0.225]
+
+task_name: wsl_noaugment_${model.model.backbone_name}_${paths.split_name}

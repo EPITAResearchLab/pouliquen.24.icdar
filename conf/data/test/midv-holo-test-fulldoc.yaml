@@ -1,0 +1,5 @@
+midv-holo-test-fulldoc:
+  _target_: src.data.midv_holo_data.MIDVHoloDataFullSplit
+  input_dir: ${paths.data_dir}/midv-holo/rectified
+  split_dir: ${paths.midvholo_split_dir}
+  split_file: "test.txt"

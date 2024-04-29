@@ -1,0 +1,5 @@
+_target_: src.models.midv_baseline.MIDVBaseline
+hight_threshold: 240 # 240 in the paper midv holo
+s_t: 50
+T: 100
+# the h threshold is the decision parameter

@@ -1,0 +1,5 @@
+midv-holo-test:
+  _target_: src.data.midv_holo_data.MIDVHoloDataSplit
+  input_dir: ${paths.data_dir}/midv-holo/crop_ovds
+  split_dir: ${paths.midvholo_split_dir}
+  split_file: "test.txt"

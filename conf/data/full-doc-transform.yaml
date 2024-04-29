@@ -1,0 +1,5 @@
+defaults:
+  - train/midv-holo-train-fulldoc
+  - test/midv-holo-test-fulldoc
+  - test/midv-holo-pr-notseen-fulldoc
+  - test/midv-2020-fulldoc

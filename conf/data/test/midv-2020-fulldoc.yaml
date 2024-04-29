@@ -1,0 +1,3 @@
+midv-2020-fulldoc:
+  _target_: src.data.midv_static.MIDVStaticFull
+  input_dir: ${paths.data_dir}/midv-2020/clips/rectified

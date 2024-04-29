@@ -1,0 +1,11 @@
+# @package _global_
+
+model:
+  model: 
+    backbone_name: resnet18
+
+training:
+  datamodule:
+    only_label: True # only origins
+
+task_name: wsl_onlyorigins_${model.model.backbone_name}_${paths.split_name}

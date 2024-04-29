@@ -1,0 +1,16 @@
+defaults:
+  - _self_
+  - paths: default
+  - model: generic_model_bin_classifier #binary_classif
+  - data: default
+  - decision: allvideo
+  - hydra: default
+  - training: trainer_binclassifier
+  - tuner: selectfromruns
+
+tune: True # find best decision threshold
+
+task_name: classifier_${model.model.backbone_name}_${paths.split_name}
+seed: 0
+decision:
+  th: 0.5 # will be tuned

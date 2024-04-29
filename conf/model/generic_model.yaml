@@ -1,0 +1,7 @@
+_target_: src.models.ssl_general.SSLGeneral
+model: 
+  _target_: src.models.generic_model.GenericBackbone
+  backbone_name: resnet18 #mobilevit_s #resnet18 # one of timm.list_models() #mobilevit_s
+  pretrained: True # imagenet
+# accelerator: "cpu"
+method: 3

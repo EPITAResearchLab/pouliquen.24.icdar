@@ -1,0 +1,19 @@
+
+root_dir: . 
+# path to data dir
+data_dir: ${paths.root_dir}/data/
+
+# path to log dir
+log_dir: ${paths.root_dir}/logs/
+
+# path to output dir: will be created by hydra
+output_dir: ${hydra:runtime.output_dir}
+
+# path to work directory
+work_dir: ${hydra:runtime.cwd}
+
+# split for midv holo
+split_dir: data/splits_kfold_s0
+split_name: k0 # for more easy selection of the split
+
+midvholo_split_dir: ${paths.split_dir}/${paths.split_name}

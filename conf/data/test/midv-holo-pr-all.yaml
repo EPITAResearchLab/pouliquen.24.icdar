@@ -1,0 +1,3 @@
+midv-holo-pr-all:
+  _target_: src.data.midv_holo_photo_replacement.MIDVHoloDataPhotoRSplit
+  input_dir: ${paths.data_dir}/midv-holo/crop_ovds

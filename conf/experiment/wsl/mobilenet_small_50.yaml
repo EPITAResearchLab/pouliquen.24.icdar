@@ -1,0 +1,5 @@
+# @package _global_
+
+model:
+  model: 
+    backbone_name: mobilenetv3_small_050
