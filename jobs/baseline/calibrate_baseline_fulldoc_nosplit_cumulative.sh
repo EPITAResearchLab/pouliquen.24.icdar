@@ -1,0 +1,2 @@
+python calibration.py --config-name=midv_baseline -m +experiment=midv_baseline/midv_baseline_nosplit "model.T=80" model.s_t=50 "decision.th=0.01,0.02,0.03" # to avoid creating multiple experience with the same name in mlflow
+python calibration.py --config-name=midv_baseline -m +experiment=midv_baseline/midv_baseline_nosplit "model.T=range(0,250,10)" "model.s_t=30,40,50" "decision.th=0.01,0.02,0.03"
